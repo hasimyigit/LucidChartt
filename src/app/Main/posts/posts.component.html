@@ -1,0 +1,35 @@
+<h2 style="float: right; margin-right: 20px; margin-bottom: 100px;" >Posts</h2>
+<div>
+
+
+<button (click)="getPostByUserId(postsInput)" [(ngModel)]="postsInput">Listele </button>
+<div class="mat-elevation-z8 data-table">
+
+  <mat-table #table [dataSource]="listData" matSort aria-label="Elements">
+
+    <!-- Amount Column -->
+    <ng-container  matColumnDef="id">
+      <mat-header-cell  *matHeaderCellDef mat-sort-header >ID</mat-header-cell>
+      <mat-cell *matCellDef="let row"><button style="margin-left:10px "
+          (click)="getPostById(row.id)">Detail</button>{{row.id}} </mat-cell>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+      <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+      <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+    </ng-container>
+
+    
+
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+  </mat-table>
+
+  <mat-paginator #paginator [length]="listData.data.length" [pageIndex]="0" [pageSize]="5"
+    [pageSizeOptions]="[1, 25, 50, 100]">
+  </mat-paginator>
+</div>
+
+</div>
+

@@ -1,0 +1,51 @@
+<h2 style="float: right; margin-right: 20px; padding-bottom: 10px;" >Todos</h2>
+<button (click)="getTodosByUserId(todosInput)" [(ngModel)]="todosInput" >Listele </button>
+<div class="mat-elevation-z8 data-table" >
+ 
+
+ 
+    <mat-table  #table [dataSource]="listData" matSort aria-label="Elements"    >
+  
+
+  
+  
+  
+      <!-- Amount Column -->
+      <ng-container matColumnDef="completed">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>completed</mat-header-cell>
+        <mat-cell *matCellDef="let row"><mat-checkbox [checked]='row.completed' (change)="openDialog3()" > </mat-checkbox>
+        </mat-cell> 
+      </ng-container>
+  
+      <ng-container matColumnDef="title">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Title</mat-header-cell>
+        <mat-cell *matCellDef="let row">{{row.title}}</mat-cell>
+      </ng-container>
+
+      <ng-container matColumnDef="id">
+        <mat-header-cell *matHeaderCellDef mat-sort-header>Details</mat-header-cell>
+        <mat-cell *matCellDef="let row">
+          <button (click)="editTodo(row.id)" ><img class="icon" src="https://image.flaticon.com/icons/png/512/97/97841.png" alt=""> </button>
+          <button (click)="openDialog2(row.id)"><img  class="icon" src="https://freeiconshop.com/wp-content/uploads/edd/trash-flat.png" alt=""></button>
+        </mat-cell>
+      </ng-container>
+
+     
+  
+      
+  
+     
+  
+      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+    </mat-table>
+  
+    <mat-paginator #paginator
+      [length]="listData.data.length"
+      [pageIndex]="0"
+      [pageSize]="5"
+      [pageSizeOptions]="[1, 25, 50, 100]">
+    </mat-paginator>
+  </div>
+  
+ <button (click)="selecedFakeTodo(3)">New Task</button>

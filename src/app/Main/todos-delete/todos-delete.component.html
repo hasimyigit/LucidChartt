@@ -1,0 +1,16 @@
+<div class="dialogTodo">   
+
+  <div style="text-align: center"><h4> Delete Modal <button (click)="close()" style="float: right">X</button></h4>  </div>
+  <hr>
+  <div class="row">
+      <div class="col-md-10" style="margin-top: 25px; margin-left: auto; margin-right: auto; text-align: center">
+          <p> Are you  sure to remove this task ?</p>
+       
+      </div>
+      <div class="col-md-6" style="margin-left: 100px;">
+        <button mat-button [(ngModel)]="data.todo.id" [mat-dialog-close]="data.todo" cdkFocusInitial style="float: left; width:50px; height:50px; " >Yes</button>
+        <button (click)="close()"style="width:50px; height:50px; margin-left:15px;">NO</button>
+      </div>
+  </div>
+  
+  </div>

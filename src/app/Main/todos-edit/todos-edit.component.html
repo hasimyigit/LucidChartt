@@ -1,0 +1,19 @@
+<div class="dialogTodo">   
+
+  <div style="text-align: center"><h4> Edit Modal <button (click)="close()" style="float: right">X</button></h4>  </div>
+  <hr>
+  <div class="row">
+      <div class="col-md-10" style="margin-top:5px; margin-left: 50px;">
+         Text: <input type="text" value={{data.todo.title}} [(ngModel)]="data.todo.title">
+       
+      </div>
+      </div>
+      <div class="row" >
+        <div class="col-md-10" style="margin-left: 50px; float: left; margin-top: 25px;">
+    <button (click)="editTodo(data.todo)" style="width:75px; height:50px; margin-left: 25px; " >Save</button>
+          <button (click)="close()"style="height:50px; width:75px; margin-left: 25px;">Cancel</button>
+        </div>
+      </div>
+     
+  </div>
+  

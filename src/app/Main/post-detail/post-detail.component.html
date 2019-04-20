@@ -1,0 +1,18 @@
+<div class="dialogPost">   
+
+
+
+<div style="text-align: center"><h4>Post Detail Modal <button (click)="close()" style="float: right">X</button></h4>  </div>
+<div class="row">
+    <div class="col-md-6">
+        <h6>Post Title</h6>
+        <p >{{data.selectedPost.body}}</p>
+    </div>
+    <div class="col-md-6">
+            <h6>Post Comments</h6>
+        <p *ngFor="let item of data.selectedComs">   <b>{{item.email}}</b><br />{{item.name}}</p>
+     
+    </div>
+</div>
+
+</div>

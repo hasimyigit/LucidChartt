@@ -1,0 +1,55 @@
+<div id="navdiv">
+
+
+  <nav class="navbar navbar-expand-lg  ">
+    <a class="navbar-brand" href="#">Sample App</a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mr-auto">
+        <form>
+          <h4>User</h4>
+          <mat-form-field>
+            <mat-label>User FullName</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="user">
+              <mat-option *ngFor="let user of users" [value]="user.id" (onSelectionChange)=getUserById(user.id)>
+                {{user.name}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <p *ngIf="selectUser"> Selected User: {{selectUser.address.city}} {{selectedValue}} </p>
+
+        </form>
+      </ul>
+
+
+    </div>
+  </nav>
+</div>
+<div class="row">
+
+
+
+  <div class="col-md-5">
+    <app-user-detail [userInput]="selectUser" class="input"></app-user-detail>
+  </div>
+
+  <div class="col-md-6" style="margin-left:100px;">
+    <app-album [albumInput]="selectedAlbum" ></app-album>
+
+  </div>
+
+</div>
+<div class="row" style="margin-top: 50px;">
+  <div class="col-md-4" style="margin-left: 200px;">
+    
+    <app-posts [postsInput]="selectedValue" ></app-posts>
+  </div>
+  <div class="col-md-5">
+      <app-todos [todosInput]="selectedValue" ></app-todos>
+    </div>
+ 
+</div>

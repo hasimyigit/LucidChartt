@@ -1,0 +1,7 @@
+.albumpic{
+    
+    object-fit: cover;
+    object-position: 50% 15%;
+    width: 200px;
+    height: 200px;
+}

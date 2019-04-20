@@ -1,0 +1,44 @@
+
+<div class="row">
+  <div class="col-md-6">
+      <form>
+          <h4>Album</h4>
+          <mat-form-field>
+            <mat-label>ALbums</mat-label>
+            <mat-select [(ngModel)]="selectedValue" name="album" >
+              <mat-option *ngFor="let album of albumInput" [value]="album.id" (onSelectionChange)=getPhotoByAlbumId(album.id)>
+               <img src="https://img.icons8.com/bubbles/2x/administrator-male.png" alt=""> {{album.title}}
+              </mat-option>
+            </mat-select>
+          </mat-form-field>
+          <!-- <p *ngIf="selectUser"> Selected User: {{selectUser.address.city}} </p> -->
+        
+        </form>
+  </div>
+  <div class="col-md-3">
+      <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel" style="width: 150px; height: 100px;">
+          <ol class="carousel-indicators">
+            <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
+            <li data-target="#carouselExampleIndicators" data-slide-to="2"></li>
+          </ol>
+          <div class="carousel-inner">
+            <div class="carousel-item active" *ngFor="let item of Photos">
+              <img src={{item.url}} class="d-block w-100" alt="...">
+            </div>
+            
+          </div>
+          <a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+          </a>
+          <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+          </a>
+        </div>
+  </div>
+</div>
+
+
+
